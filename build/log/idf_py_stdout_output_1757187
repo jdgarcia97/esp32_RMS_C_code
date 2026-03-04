@@ -1,0 +1,254 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7176
+load:0x40078000,len:15644
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (31) boot: ESP-IDF v5.3.3-dirty 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Mar  3 2026 19:28:13[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v3.1[0m
+[0;32mI (40) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (49) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (59) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (70) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (85) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=1dc9ch (122012) map[0m
+[0;32mI (147) esp_image: segment 1: paddr=0002dcc4 vaddr=3ffb0000 size=02354h (  9044) load[0m
+[0;32mI (150) esp_image: segment 2: paddr=00030020 vaddr=400d0020 size=9b4ech (636140) map[0m
+[0;32mI (370) esp_image: segment 3: paddr=000cb514 vaddr=3ffb2354 size=01b80h (  7040) load[0m
+[0;32mI (373) esp_image: segment 4: paddr=000cd09c vaddr=40080000 size=17aa8h ( 96936) load[0m
+[0;32mI (426) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (426) boot: Disabling RNG early entropy source...[0m
+[0;32mI (438) cpu_start: Multicore app[0m
+[0;32mI (447) cpu_start: Pro cpu start user code[0m
+[0;32mI (447) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (447) app_init: Application information:[0m
+[0;32mI (450) app_init: Project name:     esp32_blink[0m
+[0;32mI (455) app_init: App version:      1[0m
+[0;32mI (459) app_init: Compile time:     Mar  3 2026 19:28:06[0m
+[0;32mI (465) app_init: ELF file SHA256:  ed99fe8e4...[0m
+[0;32mI (471) app_init: ESP-IDF:          v5.3.3-dirty[0m
+[0;32mI (476) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (481) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (486) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (491) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (498) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (504) heap_init: At 3FFB8788 len 00027878 (158 KiB): DRAM[0m
+[0;32mI (510) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (516) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (523) heap_init: At 40097AA8 len 00008558 (33 KiB): IRAM[0m
+[0;32mI (531) spi_flash: detected chip: generic[0m
+[0;32mI (534) spi_flash: flash io: dio[0m
+[0;33mW (537) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (552) main_task: Started on CPU0[0m
+[0;32mI (562) main_task: Calling app_main()[0m
+[0;32mI (562) RMS: Starting RMS demo...[0m
+[0;32mI (562) HEARTBEAT: Test function called[0m
+[0;32mI (602) wifi:wifi driver task: 3ffc090c, prio:23, stack:6656, core=0[0m
+[0;32mI (612) wifi:wifi firmware version: b0b320f[0m
+[0;32mI (612) wifi:wifi certification version: v7.0[0m
+[0;32mI (612) wifi:config NVS flash: enabled[0m
+[0;32mI (612) wifi:config nano formating: disabled[0m
+[0;32mI (622) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (622) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (622) wifi:Init management short buffer num: 32[0m
+[0;32mI (632) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (632) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (642) wifi:Init static rx buffer num: 10[0m
+[0;32mI (642) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (652) wifi_init: rx ba win: 6[0m
+[0;32mI (652) wifi_init: accept mbox: 6[0m
+[0;32mI (652) wifi_init: tcpip mbox: 32[0m
+[0;32mI (662) wifi_init: udp mbox: 6[0m
+[0;32mI (662) wifi_init: tcp mbox: 6[0m
+[0;32mI (662) wifi_init: tcp tx win: 5760[0m
+[0;32mI (672) wifi_init: tcp rx win: 5760[0m
+[0;32mI (672) wifi_init: tcp mss: 1440[0m
+[0;32mI (682) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (682) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (692) phy_init: phy_version 4860,6b7a6e5,Feb  6 2025,14:47:07[0m
+[0;32mI (782) wifi:mode : sta (80:f3:da:aa:f1:74)[0m
+[0;32mI (782) wifi:enable tsf[0m
+[0;32mI (782) wifi: wifi_init finished.[0m
+[0;32mI (792) T1_50ms: Started[0m
+[0;32mI (792) T2_100ms: Started[0m
+[0;32mI (792) T3_200ms: Started[0m
+[0;32mI (792) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (792) wifi:state: init -> auth (0xb0)[0m
+[0;31mE (802) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;32mI (802) main_task: Returned from app_main()[0m
+[0;31mE (812) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (822) mqtt_client: Error transport connect[0m
+[0;32mI (822) MQTT: MQTT error occurred[0m
+[0;32mI (822) MQTT: MQTT disconnected[0m
+[0;32mI (832) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (852) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (882) wifi:connected with rosewoodhomewifi, aid = 1, channel 1, BW20, bssid = b0:2a:43:e2:e6:9b[0m
+[0;32mI (882) wifi:security: WPA2-PSK, phy: bgn, rssi: -49[0m
+[0;32mI (882) wifi:pm start, type: 1[0m
+
+[0;32mI (882) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (902) wifi:<ba-add>idx:0 (ifx:0, b0:2a:43:e2:e6:9b), tid:6, ssn:2, winSize:64[0m
+[0;32mI (932) wifi:dp: 2, bi: 102400, li: 4, scale listen interval from 307200 us to 409600 us[0m
+[0;32mI (932) wifi:AP's beacon interval = 102400 us, DTIM period = 2[0m
+[0;32mI (1192) wifi:<ba-add>idx:1 (ifx:0, b0:2a:43:e2:e6:9b), tid:0, ssn:3, winSize:64[0m
+[0;32mI (1832) MON: ISR per second: 12646[0m
+[0;32mI (1892) esp_netif_handlers: sta ip: 192.168.86.201, mask: 255.255.255.0, gw: 192.168.86.1[0m
+[0;32mI (1892) wifi: Got IP: 192.168.86.201[0m
+[0;32mI (2832) MON: ISR per second: 9978[0m
+[0;32mI (3302) T1_50ms: Jitter(us): min=424 max=428 avg=424[0m
+[0;32mI (3832) MON: ISR per second: 9980[0m
+[0;32mI (4832) MON: ISR per second: 9982[0m
+[0;32mI (5802) T1_50ms: Jitter(us): min=424 max=428 avg=424[0m
+[0;32mI (5832) T2_100ms: Jitter(us): min=13665 max=13881 avg=13673[0m
+[0;32mI (5832) MON: ISR per second: 9991[0m
+[0;32mI (6832) MON: ISR per second: 9980[0m
+[0;32mI (7832) MON: ISR per second: 9983[0m
+[0;32mI (8302) T1_50ms: Jitter(us): min=424 max=428 avg=424[0m
+[0;32mI (8832) MON: ISR per second: 9984[0m
+[0;32mI (9832) MON: ISR per second: 9983[0m
+[0;32mI (10802) T1_50ms: Jitter(us): min=424 max=428 avg=424[0m
+[0;32mI (10832) T2_100ms: Jitter(us): min=13665 max=13881 avg=13672[0m
+[0;32mI (10832) MON: ISR per second: 9995[0m
+[0;32mI (10842) T3_200ms: Jitter(us): min=-448 max=1842 avg=-199[0m
+[0;32mI (11032) MQTT: MQTT connected[0m
+[0;32mI (11052) MQTT: Subscribed, msg_id=9219[0m
+[0;32mI (11052) MQTT: Topic: esp32/test[0m
+[0;32mI (11052) MQTT: Data: Hello from ESP32[0m
+[0;32mI (11832) MON: ISR per second: 9960[0m
+[0;32mI (12832) MON: ISR per second: 9979[0m
+[0;32mI (13302) T1_50ms: Jitter(us): min=-287 max=428 avg=421[0m
+[0;32mI (13832) MON: ISR per second: 9981[0m
+[0;32mI (14832) MON: ISR per second: 9984[0m
+[0;32mI (15802) T1_50ms: Jitter(us): min=-287 max=428 avg=421[0m
+[0;32mI (15832) T2_100ms: Jitter(us): min=13665 max=13881 avg=13672[0m
+[0;32mI (15832) MON: ISR per second: 9983[0m
+[0;32mI (15842) HEARTBEAT: Heartbeat sent[0m
+[0;32mI (16832) MON: ISR per second: 9967[0m
+[0;32mI (17832) MON: ISR per second: 9979[0m
+[0;32mI (18302) T1_50ms: Jitter(us): min=-287 max=428 avg=422[0m
+[0;32mI (18832) MON: ISR per second: 9980[0m
+[0;32mI (19832) MON: ISR per second: 9981[0m
+[0;32mI (20802) T1_50ms: Jitter(us): min=-287 max=428 avg=422[0m
+[0;32mI (20832) T2_100ms: Jitter(us): min=13665 max=13881 avg=13672[0m
+[0;32mI (20832) MON: ISR per second: 9983[0m
+[0;32mI (20842) T3_200ms: Jitter(us): min=-448 max=1842 avg=-296[0m
+[0;32mI (20842) HEARTBEAT: Heartbeat sent[0m
+[0;32mI (21832) MON: ISR per second: 9961[0m
+[0;32mI (22832) MON: ISR per second: 9984[0m
+[0;32mI (23302) T1_50ms: Jitter(us): min=-287 max=428 avg=422[0m
+[0;32mI (23832) MON: ISR per second: 9980[0m
+[0;32mI (24832) MON: ISR per second: 9980[0m
+[0;32mI (25802) T1_50ms: Jitter(us): min=-287 max=428 avg=422[0m
+[0;32mI (25832) T2_100ms: Jitter(us): min=13665 max=13881 avg=13672[0m
+[0;32mI (25832) MON: ISR per second: 9983[0m
+[0;32mI (25842) HEARTBEAT: Heartbeat sent[0m
+[0;32mI (26832) MON: ISR per second: 9970[0m
+[0;32mI (27832) MON: ISR per second: 9980[0m
+[0;32mI (28302) T1_50ms: Jitter(us): min=-287 max=428 avg=422[0m
+[0;32mI (28832) MON: ISR per second: 9981[0m
+[0;32mI (29832) MON: ISR per second: 9980[0m
+[0;32mI (30802) T1_50ms: Jitter(us): min=-287 max=428 avg=422[0m
+[0;32mI (30832) T2_100ms: Jitter(us): min=13665 max=13881 avg=13672[0m
+[0;32mI (30832) MON: ISR per second: 9982[0m
+[0;32mI (30842) T3_200ms: Jitter(us): min=-448 max=1842 avg=-324[0m
+[0;32mI (30842) HEARTBEAT: Heartbeat sent[0m
+[0;32mI (31832) MON: ISR per second: 9971[0m
+[0;32mI (32832) MON: ISR per second: 9981[0m
+[0;32mI (33302) T1_50ms: Jitter(us): min=-287 max=428 avg=423[0m
+[0;32mI (33832) MON: ISR per second: 9980[0m
+[0;32mI (34832) MON: ISR per second: 9981[0m
+[0;32mI (35802) T1_50ms: Jitter(us): min=-287 max=428 avg=423[0m
+[0;32mI (35832) T2_100ms: Jitter(us): min=13665 max=13881 avg=13672[0m
+[0;32mI (35832) MON: ISR per second: 9983[0m
+[0;32mI (35842) HEARTBEAT: Heartbeat sent[0m
+[0;32mI (36832) MON: ISR per second: 9963[0m
+[0;32mI (37832) MON: ISR per second: 9979[0m
+[0;32mI (38302) T1_50ms: Jitter(us): min=-287 max=428 avg=423[0m
+[0;32mI (38832) MON: ISR per second: 9980[0m
+[0;32mI (39832) MON: ISR per second: 9986[0m
+[0;32mI (40802) T1_50ms: Jitter(us): min=-287 max=428 avg=423[0m
+[0;32mI (40832) T2_100ms: Jitter(us): min=13665 max=13881 avg=13672[0m
+[0;32mI (40832) MON: ISR per second: 9983[0m
+[0;32mI (40842) T3_200ms: Jitter(us): min=-448 max=1842 avg=-343[0m
+[0;32mI (40842) HEARTBEAT: Heartbeat sent[0m
+[0;32mI (41832) MON: ISR per second: 9964[0m
+[0;32mI (42832) MON: ISR per second: 9981[0m
+[0;32mI (43302) T1_50ms: Jitter(us): min=-287 max=428 avg=423[0m
+[0;32mI (43832) MON: ISR per second: 9979[0m
+[0;32mI (44832) MON: ISR per second: 9979[0m
+[0;32mI (45802) T1_50ms: Jitter(us): min=-287 max=433 avg=423[0m
+[0;32mI (45832) T2_100ms: Jitter(us): min=13665 max=13881 avg=13672[0m
+[0;32mI (45832) MON: ISR per second: 9984[0m
+[0;32mI (45842) HEARTBEAT: Heartbeat sent[0m
+[0;32mI (46832) MON: ISR per second: 9963[0m
+[0;32mI (47832) MON: ISR per second: 9980[0m
+[0;32mI (48302) T1_50ms: Jitter(us): min=-287 max=433 avg=423[0m
+[0;32mI (48832) MON: ISR per second: 9985[0m
+[0;32mI (49832) MON: ISR per second: 9978[0m
+[0;32mI (50802) T1_50ms: Jitter(us): min=-287 max=433 avg=423[0m
+[0;32mI (50832) T2_100ms: Jitter(us): min=13665 max=13881 avg=13672[0m
+[0;32mI (50832) MON: ISR per second: 9984[0m
+[0;32mI (50842) T3_200ms: Jitter(us): min=-448 max=1842 avg=-353[0m
+[0;32mI (50842) HEARTBEAT: Heartbeat sent[0m
+[0;32mI (51832) MON: ISR per second: 9971[0m
+[0;32mI (52832) MON: ISR per second: 9980[0m
+[0;32mI (53302) T1_50ms: Jitter(us): min=-287 max=433 avg=423[0m
+[0;32mI (53832) MON: ISR per second: 9980[0m
+[0;32mI (54832) MON: ISR per second: 9980[0m
+[0;32mI (55802) T1_50ms: Jitter(us): min=-287 max=433 avg=423[0m
+[0;32mI (55832) T2_100ms: Jitter(us): min=13665 max=13915 avg=13672[0m
+[0;32mI (55832) MON: ISR per second: 9983[0m
+[0;32mI (55842) HEARTBEAT: Heartbeat sent[0m
+[0;32mI (56832) MON: ISR per second: 9970[0m
+[0;32mI (57832) MON: ISR per second: 9979[0m
+[0;32mI (58302) T1_50ms: Jitter(us): min=-287 max=433 avg=423[0m
+[0;32mI (58832) MON: ISR per second: 9979[0m
+[0;32mI (59832) MON: ISR per second: 9982[0m
+[0;32mI (60802) T1_50ms: Jitter(us): min=-287 max=433 avg=423[0m
+[0;32mI (60832) T2_100ms: Jitter(us): min=13665 max=13915 avg=13672[0m
+[0;32mI (60832) MON: ISR per second: 9979[0m
+[0;32mI (60842) T3_200ms: Jitter(us): min=-448 max=1842 avg=-360[0m
+[0;32mI (60842) HEARTBEAT: Heartbeat sent[0m
+[0;32mI (61832) MON: ISR per second: 9968[0m
+[0;32mI (62832) MON: ISR per second: 9980[0m
+[0;32mI (63302) T1_50ms: Jitter(us): min=-287 max=433 avg=423[0m
+[0;32mI (63832) MON: ISR per second: 9981[0m
+[0;32mI (64832) MON: ISR per second: 9980[0m
+[0;32mI (65802) T1_50ms: Jitter(us): min=-287 max=433 avg=423[0m
+[0;32mI (65832) T2_100ms: Jitter(us): min=13665 max=13915 avg=13672[0m
+[0;32mI (65832) MON: ISR per second: 9990[0m
+[0;32mI (65842) HEARTBEAT: Heartbeat sent[0m
+[0;32mI (66832) MON: ISR per second: 9968[0m
+[0;32mI (67832) MON: ISR per second: 9977[0m
+[0;32mI (68302) T1_50ms: Jitter(us): min=-287 max=433 avg=423[0m
+[0;32mI (68832) MON: ISR per second: 9979[0m
+[0;32mI (69832) MON: ISR per second: 9981[0m
+[0;32mI (70802) T1_50ms: Jitter(us): min=-287 max=433 avg=423[0m
+[0;32mI (70832) T2_100ms: Jitter(us): min=13665 max=13915 avg=13672[0m
+[0;32mI (70832) MON: ISR per second: 9984[0m
+[0;32mI (70842) T3_200ms: Jitter(us): min=-448 max=1842 avg=-365[0m
+[0;32mI (70842) HEARTBEAT: Heartbeat sent[0m
+[0;32mI (71832) MON: ISR per second: 9962[0m
+[0;32mI (72832) MON: ISR per second: 9973[0m
+[0;32mI (73302) T1_50ms: Jitter(us): min=-287 max=433 avg=423[0m
+[0;32mI (73832) MON: ISR per second: 9981[0m
+[0;32mI (74832) MON: ISR per second: 9980[0m
+[0;32mI (75802) T1_50ms: Jitter(us): min=-287 max=433 avg=423[0m
+[0;32mI (75832) T2_100ms: Jitter(us): min=13665 max=13915 avg=13672[0m
+[0;32mI (75832) MON: ISR per second: 9985[0m
+[0;32mI (75842) HEARTBEAT: Heartbeat sent[0m
+[0;32mI (76832) MON: ISR per second: 9970[0m
+[0;32mI (77832) MON: ISR per second: 9980[0m

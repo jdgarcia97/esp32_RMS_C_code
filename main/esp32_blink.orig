@@ -1,0 +1,166 @@
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "esp_log.h"
+#include "esp_wifi.h"
+#include "esp_event.h"
+#include "esp_netif.h"
+#include "esp_timer.h"
+#include "nvs_flash.h"
+
+static const char *TAG = "RTOS";
+
+/************************************
+ * Init WIFI
+ ***********************************/
+
+void wifi_init(void)
+{
+    ESP_ERROR_CHECK(nvs_flash_init());
+
+    ESP_ERROR_CHECK(esp_netif_init());
+    ESP_ERROR_CHECK(esp_event_loop_create_default());
+
+    esp_netif_create_default_wifi_sta();
+
+    wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
+    ESP_ERROR_CHECK(esp_wifi_init(&cfg));
+
+    wifi_config_t wifi_config = {
+        .sta = {
+            .ssid = "rosewoodhomewifi",
+            .password = "St@rvinM@rvin12345??",
+        },
+    };
+
+    ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
+    ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &wifi_config));
+    ESP_ERROR_CHECK(esp_wifi_start());
+}
+
+// Task 1 set to 50 MS.
+void high_priority_task(void *pvParameters)
+{
+    ESP_LOGI("Task 1", "Starting High Priority Task %d", uxTaskPriorityGet(NULL));
+
+    // Get the current tick time to measure task execution time
+     TickType_t this_task_last_wake_time = xTaskGetTickCount();
+     const TickType_t task_period = pdMS_TO_TICKS(50); 
+
+    while (1) {
+        ESP_LOGI("Task 1", "Running High Priority Task");
+        int64_t start_time = esp_timer_get_time(); // Get start time in microseconds
+
+        int counter = 0; 
+        for (int i = 0; i < 150000; i++) {
+            counter += i; // Simulate some work
+        }
+
+        int64_t finish_time = esp_timer_get_time(); // Get finish time in microseconds
+        int64_t execution_time = finish_time - start_time; // Calculate execution time
+        if( execution_time > task_period * 1000) { // If execution time exceeds 1 second
+            ESP_LOGE("Task 1", "Task execution time exceeded expected period: %lld ms", execution_time / 1000);
+
+        } else {
+            ESP_LOGI("Task 1", "Task executed in %lld ms, within expected period", execution_time / 1000);
+
+        }
+         // Delay until the next cycle to maintain a consistent task period
+         vTaskDelayUntil(&this_task_last_wake_time, task_period);
+         // Alternatively, you can use vTaskDelay if you don't need precise timing:
+    }
+}
+// Task 2 set to 100 MS
+void low_priority_task(void *pvParameters)
+{
+    ESP_LOGI("Task 2", "Starting Low Priority Task %d", uxTaskPriorityGet(NULL));
+    TickType_t this_task_last_wake_time = xTaskGetTickCount();
+    const TickType_t task_period = pdMS_TO_TICKS(100); // 1/2 second
+
+    while (1) {
+
+        ESP_LOGI("Task 2", "Running Low Priority Task");
+        int64_t start_time = esp_timer_get_time(); // Get start time in microseconds
+
+        while((uint64_t)esp_timer_get_time() % 1000000 < 500000) {
+            // Simulate some work that takes time, but not too long
+        }
+    
+
+    // Get the executio time.
+    int64_t finish_time = esp_timer_get_time(); // Get finish time in microseconds
+    int64_t execution_time = finish_time - start_time; // Calculate execution time
+
+     if( execution_time > pdMS_TO_TICKS(100) * 1000) { // If execution time exceeds 1/2 second
+        ESP_LOGE("Task 2", "Task execution time exceeded expected period: %lld ms", execution_time / 1000);
+    } else {
+        ESP_LOGI("Task 2", "Task executed in %lld ms, within expected period", execution_time / 1000);
+    }
+        // Delay until the next cycle to maintain a consistent task period
+        vTaskDelayUntil(&this_task_last_wake_time, task_period);
+  }
+}
+void longer_running_task(void *pvParameters)
+{
+    ESP_LOGI("Task 3", "Starting Longer Running Task %d", uxTaskPriorityGet(NULL));
+    TickType_t this_task_last_wake_time = xTaskGetTickCount();
+    const TickType_t task_period = pdMS_TO_TICKS(100); // 1 second
+
+    while (1) {
+        ESP_LOGI("Task 3", "Running Longer Running Task");
+        int64_t start_time = esp_timer_get_time(); // Get start time in microseconds
+
+        // Simulate a longer running task
+        for (int i = 0; i < 500000; i++) {
+            // Simulate work
+        }
+
+        int64_t finish_time = esp_timer_get_time(); // Get finish time in microseconds
+        int64_t execution_time = finish_time - start_time; // Calculate execution time
+
+         if( execution_time > pdMS_TO_TICKS(100) * 1000) { // If execution time exceeds 1 second
+            ESP_LOGE("Task 3", "Task execution time exceeded expected period: %lld ms", execution_time / 1000);
+        } else {
+            ESP_LOGI("Task 3", "Task executed in %lld ms, within expected period", execution_time / 1000);
+        }
+         // Delay until the next cycle to maintain a consistent task period
+         vTaskDelayUntil(&this_task_last_wake_time, task_period);
+    }
+}   
+void app_main(void)
+ { 
+    wifi_init();
+
+    ESP_LOGI(TAG, "Starting tasks...");
+
+    BaseType_t task1 =
+    xTaskCreatePinnedToCore(
+        high_priority_task,
+        "HighTask",
+        2048,
+        NULL,
+        20,          // Higher priority
+        NULL,
+        1           // Core 1
+    );
+
+    BaseType_t task2 = xTaskCreatePinnedToCore(
+        low_priority_task,
+        "LowTask",
+        2048,
+        NULL,
+        10,          // Lower priority
+        NULL,
+        1           // Same core to see priority effect
+    );
+
+    BaseType_t task3 = xTaskCreatePinnedToCore(
+        longer_running_task,
+        "LongTask",
+        2048,
+        NULL,
+        15,          // Medium priority
+        NULL,
+        1           // Same core to see priority effect
+    );
+
+}
