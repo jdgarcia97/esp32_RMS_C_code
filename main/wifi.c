@@ -44,8 +44,8 @@ void wifi_init(void)
 
     // Connect.
     wifi_config_t wifi_config = { 0 };
-    strcpy((char*)wifi_config.sta.ssid, "rosewoodhomewifi");
-    strcpy((char*)wifi_config.sta.password, "St@rvinM@rvin12345??");
+    strcpy((char*)wifi_config.sta.ssid, "");
+    strcpy((char*)wifi_config.sta.password, "");
     wifi_config.sta.threshold.authmode = WIFI_AUTH_WPA2_PSK;
     wifi_config.sta.pmf_cfg.capable = true;
     wifi_config.sta.pmf_cfg.required = false;
