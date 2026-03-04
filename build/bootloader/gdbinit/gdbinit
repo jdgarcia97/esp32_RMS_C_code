@@ -1,2 +1,0 @@
-source /home/maya/prog/C/embedded/esp32_blink/build/bootloader/gdbinit/symbols
-source /home/maya/prog/C/embedded/esp32_blink/build/bootloader/gdbinit/connect

@@ -1,1 +1,0 @@
-warning: config BTDM_CTRL_CONTROLLER_DEBUG_MODE_1 (defined at /home/maya/esp/v5.3.3/esp-idf/components/bt/controller/esp32/Kconfig.in:499) has a "visible if" option, which is not supported for configs
